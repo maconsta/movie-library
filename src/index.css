@@ -11,3 +11,246 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1, h2, h3, h4, h5, h6, p{
+  margin: 0;
+}
+
+a{
+  max-height: auto;
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  height: 70px;
+  padding: 0 20px;
+}
+
+.navigation{
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  width: 300px;
+}
+
+.link-decoration{
+  text-decoration: none;
+  color: black;
+}
+
+.navbar-menu {
+  font-size: 24px;
+  color: #484848;
+  transform: scale(0.8);
+}
+
+.navbar-home{
+  font-size: 24px;
+}
+
+.searchbar{
+  border-radius: 5px;
+  border: 1px solid #484848;
+}
+
+.searchbar:focus{
+  outline-color: #409ade; /*#5e928e*/
+  outline-offset: 1px;
+}
+
+.searchbar-medium{
+  height: 30px;
+  width: 300px;
+}
+
+.searchbar-large{
+  height: 40px;
+  width: 300px;
+}
+
+.btn-search{
+  background-color: transparent;
+  border: 2px solid #56b839;
+  border-radius: 5px;
+  color: #56b839;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn-search:active{
+  background-color: #56b839;
+  color: #f8f9fa;
+}
+
+.btn-medium{
+  height: 30px;
+  width: 70px;
+}
+
+.btn-large{
+  height: 40px;
+  width: 90px;
+}
+
+.btn-rightside{
+  margin-left: 10px;
+}
+
+.hero{
+  width: 100%;
+  height: 384px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: linear-gradient( rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35) ), no-repeat url('/public/images/dune2.jpg');
+  background-size: cover;
+  background-position: center center;              
+
+}
+
+.hero-content{
+  margin-left: 50px;
+  z-index: 1000;
+}
+
+.banner{
+  max-width:100%;
+  max-height:100%;
+}
+
+div.hero-content > p{
+  margin-top: 20px;
+  
+}
+
+div.hero-content > p,div.hero-content > h2  {
+  width: 300px;
+  color: #f8f9fa;
+}
+
+.btn-hero{
+  margin-top: 30px;
+  background-color: transparent;
+  border: 2px solid #caaf83;
+  border-radius: 5px;
+  color: #caaf83;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn-hero:active{
+  background-color: #caaf83;
+  color: #f8f9fa;
+}
+
+main{
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+main>form{
+  margin-top: 10px;
+}
+
+div.container {
+  margin-top: 20px;
+}
+
+.result-card{
+  width: 1200px;
+  margin-top: 20px;
+  border-radius: 10px;
+  border: 1px solid #f8f9fa;
+  box-shadow: 0 0 5px #919294;
+  display: grid;
+  grid-template-columns: 350px 850px;
+  justify-items: center;
+  align-items: center;
+}
+
+.result-card-short{
+  min-height: 400px;
+  /* justify-items: center;
+  align-items: center; */
+}
+
+.result-card-long{
+  min-height: 600px;
+  grid-template-rows: 400px;
+}
+
+.result-card:hover{
+  box-shadow: 0 0 10px #919294;
+}
+
+.thumbnail{
+  width: 250px;
+  height: 300px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.info-container{
+  width: 800px;
+  height: 300px;
+}
+
+.genres{
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.summary{
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.official-site{
+  display: block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: blue;
+}
+
+.btn-add-fav{
+  margin-top: 20px;
+  background-color: transparent;
+  border: 2px solid #56b839;
+  border-radius: 5px;
+  color: #56b839;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn-xlarge{
+  height: 50px;
+  width: 150px;
+}
+
+.rating{
+  align-self: start;
+}
+
+.rating>h3{
+  text-align: center;
+}
+
+.review-container{
+  width: 800px;
+  align-self: start;
+}
+
+.review{
+  height: 150px;
+  width: 400px;
+  
+
+  /* fix alignment7 */
+}
