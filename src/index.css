@@ -229,9 +229,19 @@ div.container {
   cursor: pointer;
 }
 
+.btn-remove-fav{
+  background-color: transparent;
+  color: red;
+  border: 2px solid red;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
 .btn-xlarge{
   height: 50px;
-  width: 150px;
+  width: 170px;
 }
 
 .rating{
@@ -251,6 +261,14 @@ div.container {
   height: 150px;
   width: 400px;
   
+}
 
-  /* fix alignment7 */
+.fav-container {
+  margin-top: 30px;
+  max-width: 790px;
+  height: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  gap: 20px;
 }

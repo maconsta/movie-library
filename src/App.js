@@ -8,7 +8,12 @@ import Results from "./components/results";
 import MoviePage from "./components/moviePage";
 
 class App extends Component {
-  state = { movies: [], query: "", favorites: [] };
+  state = {
+    movies: [],
+    query: "",
+    favorites: {},
+    review: {},
+  };
 
   handleSubmit = async (evt) => {
     evt.preventDefault();
@@ -20,6 +25,7 @@ class App extends Component {
       "https://cors-anywhere.herokuapp.com/https://api.tvmaze.com/search/shows?q=" +
         this.state.query
     );
+
     this.setState({ movies });
 
     const query = "";
@@ -36,20 +42,58 @@ class App extends Component {
     this.setState({ movies });
   };
 
+  handleComment = ({ currentTarget }, movie) => {
+    const { id } = movie.show;
+    const r = { ...this.state.review };
+    r[id].comment = currentTarget.value;
+    this.setState({ review: r });
+  };
+
+  handleRating = (number, movie) => {
+    const { id } = movie.show;
+    const r = { ...this.state.review };
+    r[id].rating = number;
+    this.setState({ review: r });
+  };
+
+  addMovieToReview = (movie) => {
+    const { id } = movie.show;
+    const { review } = this.state;
+    if (!(id in review)) {
+      const r = { ...review, [id]: { rating: 0, comment: "" } };
+      this.setState({ review: r });
+    }
+  };
+
+  handleFavorites = (movie) => {
+    const { favorites } = this.state;
+    const { id } = movie.show;
+
+    let f;
+    if (id in favorites) {
+      f = { ...favorites };
+      delete f[id];
+    } else {
+      f = { ...favorites, [id]: movie };
+    }
+    this.setState({ favorites: f });
+  };
+
   render() {
     return (
       <React.Fragment>
         <Header
           query={this.state.query}
+          favorites={this.state.favorites}
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
-          enableHero={this.enableHero}
         ></Header>
         <Routes>
           <Route
             path="/favorites"
             element={
               <Favorites
+                favorites={this.state.favorites}
                 handleSubmit={this.handleSubmit}
                 clearMovies={this.clearMovies}
               />
@@ -61,16 +105,31 @@ class App extends Component {
               <Results
                 query={this.state.query}
                 movies={this.state.movies}
+                favorites={this.state.favorites}
                 handleChange={this.handleChange}
                 handleSubmit={this.handleSubmit}
+                handleFavorites={this.handleFavorites}
               />
             }
           ></Route>
-          <Route path="/moviePage" element={<MoviePage />}></Route>
+          <Route
+            path="/moviePage"
+            element={
+              <MoviePage
+                review={this.state.review}
+                favorites={this.state.favorites}
+                handleComment={this.handleComment}
+                handleRating={this.handleRating}
+                handleFavorites={this.handleFavorites}
+                addMovieToReview={this.addMovieToReview}
+              />
+            }
+          ></Route>
           <Route
             path="/"
             element={
               <Favorites
+                favorites={this.state.favorites}
                 handleSubmit={this.handleSubmit}
                 clearMovies={this.clearMovies}
               />

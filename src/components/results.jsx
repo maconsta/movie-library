@@ -3,7 +3,14 @@ import { useNavigate } from "react-router-dom";
 import SearchBar from "./searchBar";
 import Result from "./result";
 
-const Results = ({ query, movies, handleChange, handleSubmit }) => {
+const Results = ({
+  query,
+  movies,
+  favorites,
+  handleChange,
+  handleSubmit,
+  handleFavorites,
+}) => {
   let navigate = useNavigate();
   return (
     <main>
@@ -28,7 +35,12 @@ const Results = ({ query, movies, handleChange, handleSubmit }) => {
       </form>
       <div className="container">
         {movies.map((movie) => (
-          <Result key={movie.show.id} movie={movie} />
+          <Result
+            key={movie.show.id}
+            movie={movie}
+            favorites={favorites}
+            handleFavorites={handleFavorites}
+          />
         ))}
       </div>
     </main>
